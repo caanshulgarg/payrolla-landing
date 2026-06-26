@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Payrolla.in — AI-Powered Indian Payroll & HRMS Software</title>
+<meta name="description" content="India's most affordable payroll software. PF, ESIC, TDS, PT, LWF — all 28 states. AI assistant built-in. Tally integration. ₹49/emp/month. 30-day free trial."/>
+<meta property="og:title" content="Payrolla.in — AI-Powered Indian Payroll Software"/>
+<meta property="og:description" content="Automate payroll, statutory compliance & HR for Indian businesses. Starting at ₹49/emp/month."/>
+
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --navy:#0d1b4b;--indigo:#1a237e;--blue:#3949ab;--sky:#5c6bc0;
+  --accent:#2979ff;--green:#2e7d32;--amber:#f57c00;--red:#c62828;
+  --white:#fff;--light:#f8f9ff;--gray:#f0f1f5;--muted:#6b7280;--dark:#111827;
+  --radius:10px;
+}
+html{scroll-behavior:smooth}
+body{font-family:"Segoe UI",system-ui,-apple-system,sans-serif;color:var(--dark);background:var(--white);line-height:1.6}
+a{text-decoration:none;color:inherit}
+img{max-width:100%}
+
+/* NAV */
+nav{position:sticky;top:0;z-index:99;background:rgba(255,255,255,.96);backdrop-filter:blur(12px);border-bottom:1px solid #e5e7eb;padding:0 5%}
+.nav-inner{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:64px}
+.logo{font-size:22px;font-weight:900;color:var(--navy);letter-spacing:-0.5px}
+.logo span{color:var(--accent)}
+.nav-links{display:flex;align-items:center;gap:28px}
+.nav-links a{font-size:14px;color:var(--muted);font-weight:500;transition:color .15s}
+.nav-links a:hover{color:var(--navy)}
+.nav-ctas{display:flex;gap:10px;align-items:center}
+.btn{display:inline-flex;align-items:center;gap:6px;padding:9px 20px;border-radius:var(--radius);font-size:14px;font-weight:600;cursor:pointer;transition:all .15s;border:none}
+.btn-ghost{background:transparent;color:var(--navy);border:1.5px solid #ddd}
+.btn-ghost:hover{background:var(--light);border-color:var(--blue)}
+.btn-primary{background:var(--indigo);color:#fff}
+.btn-primary:hover{background:var(--navy)}
+.btn-lg{padding:14px 32px;font-size:16px;border-radius:12px}
+.btn-white{background:#fff;color:var(--navy)}
+.btn-white:hover{background:var(--light)}
+.btn-outline-white{background:transparent;color:#fff;border:2px solid rgba(255,255,255,.5)}
+.btn-outline-white:hover{background:rgba(255,255,255,.1);border-color:#fff}
+
+/* HERO */
+.hero{background:linear-gradient(135deg,var(--navy) 0%,var(--indigo) 60%,#283593 100%);color:#fff;padding:90px 5% 80px;text-align:center;position:relative;overflow:hidden}
+.hero::before{content:"";position:absolute;inset:0;background:url("data:image/svg+xml,%3Csvg width='60' height='60' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='30' cy='30' r='1' fill='rgba(255,255,255,0.06)'/%3E%3C/svg%3E");pointer-events:none}
+.hero-inner{max-width:820px;margin:0 auto;position:relative}
+.hero-badge{display:inline-flex;align-items:center;gap:6px;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.2);color:rgba(255,255,255,.9);font-size:12px;font-weight:600;padding:5px 14px;border-radius:20px;margin-bottom:28px;letter-spacing:.3px}
+.hero h1{font-size:clamp(32px,5vw,56px);font-weight:900;line-height:1.15;letter-spacing:-1px;margin-bottom:20px}
+.hero h1 span{color:#90caf9}
+.hero-sub{font-size:clamp(15px,2vw,19px);color:rgba(255,255,255,.78);max-width:600px;margin:0 auto 36px;line-height:1.7}
+.hero-ctas{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-bottom:48px}
+.hero-stats{display:flex;justify-content:center;gap:40px;flex-wrap:wrap}
+.hero-stat{text-align:center}
+.hero-stat-val{font-size:28px;font-weight:900;color:#fff}
+.hero-stat-label{font-size:12px;color:rgba(255,255,255,.6);margin-top:2px}
+
+/* TRUST BAR */
+.trust-bar{background:var(--light);border-bottom:1px solid #e5e7eb;padding:16px 5%}
+.trust-inner{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:center;gap:28px;flex-wrap:wrap}
+.trust-item{display:flex;align-items:center;gap:6px;font-size:13px;font-weight:600;color:var(--muted)}
+.trust-dot{width:6px;height:6px;border-radius:3px;background:var(--green)}
+
+/* SECTION */
+section{padding:80px 5%}
+.section-inner{max-width:1200px;margin:0 auto}
+.section-tag{display:inline-block;font-size:12px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--blue);background:#e8eaf6;padding:4px 12px;border-radius:20px;margin-bottom:14px}
+.section-title{font-size:clamp(24px,3vw,38px);font-weight:800;color:var(--navy);line-height:1.2;margin-bottom:14px}
+.section-sub{font-size:16px;color:var(--muted);max-width:560px;line-height:1.7}
+.section-header{text-align:center;margin-bottom:56px}
+.section-header .section-sub{margin:0 auto}
+
+/* WHY PAYROLLA */
+.why-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:20px}
+.why-card{background:var(--white);border:1px solid #e5e7eb;border-radius:14px;padding:28px 24px;transition:all .2s}
+.why-card:hover{border-color:var(--blue);transform:translateY(-2px)}
+.why-icon{width:48px;height:48px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:24px;margin-bottom:16px}
+.why-card h3{font-size:17px;font-weight:700;color:var(--navy);margin-bottom:8px}
+.why-card p{font-size:14px;color:var(--muted);line-height:1.6}
+
+/* FEATURES */
+.features-bg{background:var(--light)}
+.feat-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px}
+.feat-item{background:#fff;border:1px solid #e5e7eb;border-radius:10px;padding:18px;display:flex;gap:12px;align-items:flex-start}
+.feat-icon{font-size:20px;flex-shrink:0;margin-top:1px}
+.feat-item h4{font-size:13px;font-weight:700;color:var(--navy);margin-bottom:3px}
+.feat-item p{font-size:12px;color:var(--muted);line-height:1.5}
+.feat-badge{display:inline-block;font-size:9px;font-weight:700;background:#e8f5e9;color:var(--green);padding:1px 5px;border-radius:4px;margin-left:4px;vertical-align:middle}
+
+/* AI SECTION */
+.ai-section{background:linear-gradient(135deg,#1a237e,#283593)}
+.ai-section .section-tag{background:rgba(255,255,255,.15);color:#fff}
+.ai-section .section-title{color:#fff}
+.ai-section .section-sub{color:rgba(255,255,255,.75)}
+.ai-features-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;margin-top:40px}
+.ai-feat{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.15);border-radius:12px;padding:18px}
+.ai-feat-icon{font-size:22px;margin-bottom:10px}
+.ai-feat h4{font-size:13px;font-weight:700;color:#fff;margin-bottom:5px}
+.ai-feat p{font-size:12px;color:rgba(255,255,255,.7);line-height:1.5}
+.ai-example{background:rgba(255,255,255,.08);border-left:2px solid rgba(255,255,255,.3);padding:8px 10px;border-radius:0 6px 6px 0;margin-top:8px;font-size:11px;color:rgba(255,255,255,.65);font-style:italic}
+
+/* HOW IT WORKS */
+.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:20px;counter-reset:steps}
+.step{text-align:center;padding:20px}
+.step-num{width:48px;height:48px;border-radius:50%;background:var(--indigo);color:#fff;font-size:20px;font-weight:900;display:flex;align-items:center;justify-content:center;margin:0 auto 16px}
+.step h3{font-size:16px;font-weight:700;color:var(--navy);margin-bottom:8px}
+.step p{font-size:14px;color:var(--muted);line-height:1.6}
+.step-arrow{font-size:28px;color:#ddd;display:flex;align-items:center;justify-content:center}
+
+/* PRICING */
+.pricing-bg{background:var(--light)}
+.pricing-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px;max-width:900px;margin:0 auto}
+.price-card{background:#fff;border:1.5px solid #e5e7eb;border-radius:16px;padding:32px 28px;transition:all .2s;position:relative}
+.price-card:hover{border-color:var(--blue)}
+.price-card.featured{border:2px solid var(--indigo);background:var(--navy);color:#fff}
+.price-card.featured .price-name{color:rgba(255,255,255,.7)}
+.price-card.featured .price-desc{color:rgba(255,255,255,.6)}
+.price-card.featured li{color:rgba(255,255,255,.8)}
+.price-popular{position:absolute;top:-12px;left:50%;transform:translateX(-50%);background:var(--amber);color:#fff;font-size:11px;font-weight:700;padding:3px 12px;border-radius:20px;white-space:nowrap}
+.price-name{font-size:13px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.5px;margin-bottom:12px}
+.price-amount{font-size:36px;font-weight:900;color:var(--navy);line-height:1}
+.price-card.featured .price-amount{color:#fff}
+.price-unit{font-size:13px;color:var(--muted);margin-top:4px}
+.price-card.featured .price-unit{color:rgba(255,255,255,.6)}
+.price-desc{font-size:13px;color:var(--muted);margin:12px 0 20px;padding-bottom:20px;border-bottom:1px solid #f0f0f0}
+.price-card.featured .price-desc{border-color:rgba(255,255,255,.15)}
+.price-features{list-style:none;margin-bottom:28px}
+.price-features li{font-size:13px;color:#374151;padding:5px 0;display:flex;gap:8px;align-items:flex-start}
+.price-features li::before{content:"✓";color:var(--green);font-weight:700;flex-shrink:0}
+.price-card.featured .price-features li::before{color:#90caf9}
+.price-btn{width:100%;padding:12px;border-radius:var(--radius);font-size:14px;font-weight:700;text-align:center;cursor:pointer;border:none;display:block;transition:all .15s}
+.price-btn-outline{background:transparent;border:1.5px solid var(--indigo);color:var(--indigo)}
+.price-btn-outline:hover{background:var(--light)}
+.price-btn-solid{background:#fff;color:var(--navy)}
+.price-btn-solid:hover{background:var(--light)}
+
+/* COMPARISON */
+.cmp-table{width:100%;border-collapse:collapse;font-size:14px}
+.cmp-table th{padding:12px 16px;text-align:left;font-weight:700;font-size:13px;color:var(--muted);border-bottom:2px solid #e5e7eb;background:var(--light)}
+.cmp-table th.hl{background:#e8eaf6;color:var(--navy)}
+.cmp-table td{padding:11px 16px;border-bottom:1px solid #f0f0f0;font-size:13px}
+.cmp-table td.hl{background:#f5f6ff;font-weight:600}
+.cmp-table tr:last-child td{border-bottom:none}
+.cmp-yes{color:var(--green);font-size:16px;font-weight:700}
+.cmp-no{color:#aaa;font-size:16px}
+.cmp-price{font-weight:800;font-size:16px;color:var(--navy)}
+.hl-price{color:#1a237e}
+
+/* TESTIMONIALS */
+.testi-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px}
+.testi-card{background:var(--white);border:1px solid #e5e7eb;border-radius:14px;padding:24px;transition:all .2s}
+.testi-card:hover{border-color:var(--blue)}
+.testi-stars{color:#f59e0b;font-size:14px;margin-bottom:12px;letter-spacing:2px}
+.testi-text{font-size:14px;color:#374151;line-height:1.7;margin-bottom:16px;font-style:italic}
+.testi-author{display:flex;align-items:center;gap:10px}
+.testi-avatar{width:40px;height:40px;border-radius:50%;background:var(--indigo);color:#fff;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;flex-shrink:0}
+.testi-name{font-size:14px;font-weight:700;color:var(--navy)}
+.testi-role{font-size:12px;color:var(--muted)}
+
+/* CTA BANNER */
+.cta-banner{background:linear-gradient(135deg,var(--navy),var(--indigo));color:#fff;text-align:center;padding:80px 5%}
+.cta-banner h2{font-size:clamp(24px,3vw,40px);font-weight:900;margin-bottom:14px}
+.cta-banner p{font-size:16px;color:rgba(255,255,255,.75);margin-bottom:36px;max-width:500px;margin-left:auto;margin-right:auto}
+.cta-banner .hero-ctas{margin-bottom:20px}
+.cta-banner .fine-print{font-size:12px;color:rgba(255,255,255,.5);margin-top:16px}
+
+/* FOOTER */
+footer{background:var(--navy);color:rgba(255,255,255,.6);padding:56px 5% 32px}
+.footer-inner{max-width:1200px;margin:0 auto}
+.footer-top{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:40px;margin-bottom:40px}
+.footer-brand .logo{color:#fff;font-size:20px;margin-bottom:14px;display:block}
+.footer-brand p{font-size:13px;line-height:1.7;max-width:260px}
+.footer-col h4{font-size:13px;font-weight:700;color:#fff;margin-bottom:14px;text-transform:uppercase;letter-spacing:.5px}
+.footer-col a{display:block;font-size:13px;color:rgba(255,255,255,.5);margin-bottom:8px;transition:color .15s}
+.footer-col a:hover{color:#fff}
+.footer-bottom{border-top:1px solid rgba(255,255,255,.1);padding-top:24px;display:flex;justify-content:space-between;align-items:center;flex-wrap:gap;gap:12px;font-size:12px}
+.compliance-badges{display:flex;gap:10px;flex-wrap:wrap;margin-top:16px}
+.cbadge{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);border-radius:6px;padding:4px 10px;font-size:11px;font-weight:600;color:rgba(255,255,255,.7)}
+
+@media(max-width:768px){
+  .nav-links{display:none}
+  .hero-stats{gap:24px}
+  .footer-top{grid-template-columns:1fr 1fr}
+  .footer-brand{grid-column:1/-1}
+  .cmp-table{font-size:12px}
+  .cmp-table th,.cmp-table td{padding:8px 10px}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-inner">
+    <a href="#" class="logo">Payrolla<span>.in</span></a>
+    <div class="nav-links">
+      <a href="#features">Features</a>
+      <a href="#ai">AI Assistant</a>
+      <a href="#pricing">Pricing</a>
+      <a href="#compare">Compare</a>
+    </div>
+    <div class="nav-ctas">
+      <a href="https://canashulgarg.github.io/payrolla" class="btn btn-ghost">Log in</a>
+      <a href="https://canashulgarg.github.io/payrolla?register=1" class="btn btn-primary">Start Free Trial</a>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-badge">🇮🇳 Built for India · CA-Grade Compliance</div>
+    <h1>Payroll Software<br/>India Actually <span>Deserves</span></h1>
+    <p class="hero-sub">PF, ESIC, TDS, PT, LWF — all 28 states. AI assistant built-in. Tally integration. Starting at <strong style="color:#fff">₹49/emp/month</strong>.</p>
+    <div class="hero-ctas">
+      <a href="https://canashulgarg.github.io/payrolla?register=1" class="btn btn-white btn-lg">🚀 Start 30-Day Free Trial</a>
+      <a href="https://canashulgarg.github.io/payrolla" class="btn btn-outline-white btn-lg">Log in →</a>
+    </div>
+    <div class="hero-stats">
+      <div class="hero-stat"><div class="hero-stat-val">28</div><div class="hero-stat-label">States covered</div></div>
+      <div class="hero-stat"><div class="hero-stat-val">70+</div><div class="hero-stat-label">Features built</div></div>
+      <div class="hero-stat"><div class="hero-stat-val">₹49</div><div class="hero-stat-label">Per employee/month</div></div>
+      <div class="hero-stat"><div class="hero-stat-val">10</div><div class="hero-stat-label">AI capabilities</div></div>
+      <div class="hero-stat"><div class="hero-stat-val">30 days</div><div class="hero-stat-label">Free trial</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- TRUST BAR -->
+<div class="trust-bar">
+  <div class="trust-inner">
+    <div class="trust-item"><div class="trust-dot"></div>PF / EPFO Compliant</div>
+    <div class="trust-item"><div class="trust-dot"></div>ESIC Ready</div>
+    <div class="trust-item"><div class="trust-dot"></div>TDS — New & Old Regime</div>
+    <div class="trust-item"><div class="trust-dot"></div>PT — All 28 States</div>
+    <div class="trust-item"><div class="trust-dot"></div>LWF — 15 States</div>
+    <div class="trust-item"><div class="trust-dot"></div>Tally XML Export</div>
+    <div class="trust-item"><div class="trust-dot"></div>CA-Grade Audit Trail</div>
+  </div>
+</div>
+
+<!-- WHY PAYROLLA -->
+<section id="why">
+  <div class="section-inner">
+    <div class="section-header">
+      <div class="section-tag">Why Payrolla</div>
+      <h2 class="section-title">Everything competitors charge<br/>₹5,000/month for</h2>
+      <p class="section-sub">GreytHR starts at ₹7,495/month. Keka at ₹9,999/month. Payrolla gives you more for ₹49 per employee.</p>
+    </div>
+    <div class="why-grid">
+      <div class="why-card">
+        <div class="why-icon" style="background:#e8eaf6">🤖</div>
+        <h3>AI Assistant — Industry First</h3>
+        <p>Ask payroll questions in plain English or Hindi. Get instant answers, anomaly alerts, tax optimisation, and compliance reminders. No competitor has this.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-icon" style="background:#e8f5e9">📒</div>
+        <h3>Tally Integration Built-in</h3>
+        <p>Generate Tally-compatible XML files with journal and payment vouchers. Import directly into Tally ERP 9 or Prime — no plugin, no manual entry.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-icon" style="background:#fff3e0">⚖️</div>
+        <h3>CA-Grade Compliance</h3>
+        <p>Built by a Chartered Accountant. Form 16, 24Q, EPFO ECR, ESIC Challan, PT Challans, LWF — every statutory document, correctly formatted for filing.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-icon" style="background:#fce4ec">💰</div>
+        <h3>5× Cheaper Than Alternatives</h3>
+        <p>₹49/emp vs ₹100–400/emp at Keka and GreytHR. For a 20-person team: Payrolla costs ₹980/mo. Keka costs ₹9,999/mo. Same features, 10× lower price.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURES -->
+<section id="features" class="features-bg">
+  <div class="section-inner">
+    <div class="section-header">
+      <div class="section-tag">Features</div>
+      <h2 class="section-title">Everything you need<br/>to run payroll right</h2>
+      <p class="section-sub">70+ features covering every aspect of Indian payroll and HR management.</p>
+    </div>
+    <div class="feat-grid">
+      <div class="feat-item"><div class="feat-icon">🧮</div><div><h4>Smart Payroll Engine</h4><p>PF, ESIC, TDS, PT, LWF auto-calculated. New + Old IT regime. 80C/80D/NPS declarations.</p></div></div>
+      <div class="feat-item"><div class="feat-icon">🗺️</div><div><h4>All 28 States PT <span class="feat-badge">NEW</span></h4><p>Correct Professional Tax slabs for every state. Auto-applies when you select your state.</p></div></div>
+      <div class="feat-item"><div class="feat-icon">⚒️</div><div><h4>Labour Welfare Fund <span class="feat-badge">NEW</span></h4><p>LWF calculation for 15 states. Monthly or biannual as per state rules. Challan generation.</p></div></div>
+      <div class="feat-item"><div class="feat-icon">📋</div><div><h4>Form 16 — Part A & B</h4><p>Complete TDS certificate with salary breakup, declarations, and tax computation. Per employee or bulk.</p></div></div>
+      <div class="feat-item"><div class="feat-icon">📊</div><div><h4>Form 24Q</h4><p>Quarterly TDS return with Annexure I & II. File directly on TRACES using RPU utility.</p></div></div>
+      <div class="feat-item"><div class="feat-icon">📄</div><div><h4>Form 12BB <span class="feat-badge">NEW</span></h4><p>Investment declaration form pre-filled from employee data. HRA, LTA, 80C, 80D sections.</p></div></div>
+      <div class="feat-item"><div class="feat-icon">🏛️</div><div><h4>EPFO ECR v2.0</h4><p>Proper pipe-delimited ECR format with UAN and all required fields. Upload directly to EPFO portal.</p></div></div>
+      <div class="feat-item"><div class="feat-icon">🏥</div><div><h4>ESIC Challan <span class="feat-badge">NEW</span></h4><p>Monthly challan with employee-wise table. Due date, ESIC code, direct portal link.</p></div></div>
+      <div class="feat-item"><div class="feat-icon">🏦</div><div><h4>Bank Transfer Files <span class="feat-badge">NEW</span></h4><p>SBI, HDFC, ICICI, Axis, Generic NEFT formats. One click → upload to your bank portal.</p></div></div>
+      <div class="feat-item"><div class="feat-icon">⏰</div><div><h4>Overtime & Variable Pay <span class="feat-badge">NEW</span></h4><p>OT at 2× rate. Variable pay and bonus flow through payroll. Shows separately in salary slip.</p></div></div>
+      <div class="feat-item"><div class="feat-icon">⚖️</div><div><h4>Min Wages Check <span class="feat-badge">NEW</span></h4><p>Flags employees below Central Sphere minimum wages before payroll runs. 4 skill categories.</p></div></div>
+      <div class="feat-item"><div class="feat-icon">📜</div><div><h4>HR Letters <span class="feat-badge">NEW</span></h4><p>Offer letters and appointment letters auto-generated from employee data. Print-ready.</p></div></div>
+      <div class="feat-item"><div class="feat-icon">🌴</div><div><h4>Leave Management</h4><p>CL, SL, EL, ML, PL and more. Apply, approve, track. Auto-deducted in payroll.</p></div></div>
+      <div class="feat-item"><div class="feat-icon">🕐</div><div><h4>Attendance Tracking</h4><p>Manual marking or biometric integration (ZKTeco, Essl). LOP auto-calculated.</p></div></div>
+      <div class="feat-item"><div class="feat-icon">💸</div><div><h4>Loans & Reimbursements</h4><p>Employee loans with EMI tracking. Expense reimbursement approval workflow.</p></div></div>
+      <div class="feat-item"><div class="feat-icon">⚖️</div><div><h4>F&F Settlement</h4><p>Full and Final including gratuity, encashment, notice pay, and deductions. One-click calculation.</p></div></div>
+      <div class="feat-item"><div class="feat-icon">📈</div><div><h4>Reports & Downloads</h4><p>Payroll summary, salary register, bank file, CTC report, gratuity register — 20+ reports.</p></div></div>
+      <div class="feat-item"><div class="feat-icon">🔍</div><div><h4>Audit Trail</h4><p>Every action logged with timestamp. Who approved, who ran payroll, what changed. CSV export.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- AI SECTION -->
+<section id="ai" class="ai-section">
+  <div class="section-inner">
+    <div class="section-header">
+      <div class="section-tag">AI Assistant</div>
+      <h2 class="section-title" style="color:#fff">India's first AI-powered<br/>payroll assistant</h2>
+      <p class="section-sub" style="color:rgba(255,255,255,.7);margin:0 auto">Ask anything about your payroll in plain English or Hindi. Get instant, accurate answers based on your actual data.</p>
+    </div>
+    <div class="ai-features-grid">
+      <div class="ai-feat">
+        <div class="ai-feat-icon">💬</div>
+        <h4>Payroll Q&A</h4>
+        <p>Ask questions about your payroll data in plain language</p>
+        <div class="ai-example">"Which employees had TDS above ₹5,000 this month?"</div>
+      </div>
+      <div class="ai-feat">
+        <div class="ai-feat-icon">📊</div>
+        <h4>IT Regime Optimizer</h4>
+        <p>Tells each employee exactly which regime saves more tax</p>
+        <div class="ai-example">"Old regime saves Priya ₹18,400/yr if she declares ₹1.5L under 80C"</div>
+      </div>
+      <div class="ai-feat">
+        <div class="ai-feat-icon">⚠️</div>
+        <h4>Anomaly Detector</h4>
+        <p>Flags unusual salary changes before you approve payroll</p>
+        <div class="ai-example">"Rajesh's net pay jumped 40% — salary changed ₹42K → ₹59K. Confirm?"</div>
+      </div>
+      <div class="ai-feat">
+        <div class="ai-feat-icon">📅</div>
+        <h4>Compliance Reminders</h4>
+        <p>Tells you what's due this week — PF, TDS, ESIC, PT</p>
+        <div class="ai-example">"PF ECR due in 3 days for ₹28,400. TDS already filed."</div>
+      </div>
+      <div class="ai-feat">
+        <div class="ai-feat-icon">📄</div>
+        <h4>Document Drafter</h4>
+        <p>Generates employment and increment letters using your data</p>
+        <div class="ai-example">"Draft increment letter for Priya — 15% hike from April"</div>
+      </div>
+      <div class="ai-feat">
+        <div class="ai-feat-icon">🔮</div>
+        <h4>Payroll Predictor</h4>
+        <p>Projects next month's payroll cost with explanations</p>
+        <div class="ai-example">"Estimated ₹4.2L gross (+₹18K vs this month — Amit's revision)"</div>
+      </div>
+    </div>
+    <div style="text-align:center;margin-top:40px">
+      <a href="https://canashulgarg.github.io/payrolla?register=1" class="btn btn-white btn-lg">Try AI Free for 30 Days →</a>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section id="how">
+  <div class="section-inner">
+    <div class="section-header">
+      <div class="section-tag">How it works</div>
+      <h2 class="section-title">Up and running in under 10 minutes</h2>
+      <p class="section-sub">No implementation consultant. No training call. No setup fee.</p>
+    </div>
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">1</div>
+        <h3>Create your account</h3>
+        <p>Sign up with your company name and email. 30-day free trial starts immediately. No credit card.</p>
+      </div>
+      <div class="step-arrow">→</div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <h3>Add your employees</h3>
+        <p>Enter salary structure, PAN, bank details, PF status. Bulk import from Excel coming soon.</p>
+      </div>
+      <div class="step-arrow">→</div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <h3>Configure compliance</h3>
+        <p>Select your state for PT. Enable PF, ESIC, LWF. Set IT regime. Takes 2 minutes.</p>
+      </div>
+      <div class="step-arrow">→</div>
+      <div class="step">
+        <div class="step-num">4</div>
+        <h3>Run payroll</h3>
+        <p>Click Run Payroll. Download salary slips, bank file, EPFO ECR, ESIC challan, Form 24Q. Done.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section id="pricing" class="pricing-bg">
+  <div class="section-inner">
+    <div class="section-header">
+      <div class="section-tag">Pricing</div>
+      <h2 class="section-title">Simple, transparent pricing</h2>
+      <p class="section-sub">All plans include 30-day free trial. No setup fee. Cancel anytime.</p>
+    </div>
+    <div class="pricing-grid">
+      <div class="price-card">
+        <div class="price-name">Starter</div>
+        <div class="price-amount">₹49</div>
+        <div class="price-unit">per employee / month</div>
+        <div class="price-desc">Perfect for CA firms and small businesses up to 25 employees.</div>
+        <ul class="price-features">
+          <li>Full payroll engine</li>
+          <li>All statutory docs (Form 16, 24Q, EPFO, ESIC)</li>
+          <li>28-state PT + 15-state LWF</li>
+          <li>Employee self-service portal</li>
+          <li>20+ reports + CSV downloads</li>
+          <li>Biometric bridge app</li>
+          <li>Email & WhatsApp notifications</li>
+        </ul>
+        <a href="https://canashulgarg.github.io/payrolla?register=1" class="btn price-btn price-btn-outline">Start Free Trial →</a>
+      </div>
+
+      <div class="price-card featured">
+        <div class="price-popular">Most Popular</div>
+        <div class="price-name">Growth</div>
+        <div class="price-amount">₹99</div>
+        <div class="price-unit" style="color:rgba(255,255,255,.6)">per employee / month</div>
+        <div class="price-desc">For companies scaling from 25 to 100 employees.</div>
+        <ul class="price-features">
+          <li>Everything in Starter</li>
+          <li>Tally XML export</li>
+          <li>Bank transfer files (5 formats)</li>
+          <li>Offer & appointment letters</li>
+          <li>F&F settlement module</li>
+          <li>Overtime + variable pay</li>
+          <li>Priority email support</li>
+        </ul>
+        <a href="https://canashulgarg.github.io/payrolla?register=1" class="btn price-btn price-btn-solid">Start Free Trial →</a>
+      </div>
+
+      <div class="price-card">
+        <div class="price-name">Pro</div>
+        <div class="price-amount">₹149</div>
+        <div class="price-unit">per employee / month</div>
+        <div class="price-desc">For businesses that need AI, advanced analytics, and unlimited employees.</div>
+        <ul class="price-features">
+          <li>Everything in Growth</li>
+          <li>🤖 AI Assistant (all 10 features)</li>
+          <li>CA Audit Assistant</li>
+          <li>Min wages compliance report</li>
+          <li>Razorpay payment integration</li>
+          <li>WhatsApp auto-notifications</li>
+          <li>Dedicated account manager</li>
+        </ul>
+        <a href="https://canashulgarg.github.io/payrolla?register=1" class="btn price-btn price-btn-outline">Start Free Trial →</a>
+      </div>
+    </div>
+    <p style="text-align:center;font-size:13px;color:var(--muted);margin-top:24px">All plans include 30-day free trial · No credit card required · Cancel anytime</p>
+  </div>
+</section>
+
+<!-- COMPARISON -->
+<section id="compare">
+  <div class="section-inner">
+    <div class="section-header">
+      <div class="section-tag">Comparison</div>
+      <h2 class="section-title">How we compare</h2>
+      <p class="section-sub">Feature-for-feature, Payrolla gives more at a fraction of the price.</p>
+    </div>
+    <div style="overflow-x:auto;border:1px solid #e5e7eb;border-radius:14px">
+      <table class="cmp-table">
+        <thead>
+          <tr>
+            <th style="width:220px">Feature</th>
+            <th class="hl">Payrolla.in</th>
+            <th>GreytHR</th>
+            <th>Keka</th>
+            <th>Zoho Payroll</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td><strong>Starting price</strong></td><td class="hl"><span class="cmp-price hl-price">₹49/emp</span></td><td><span class="cmp-price">₹7,495/mo flat</span></td><td><span class="cmp-price">₹9,999/mo</span></td><td><span class="cmp-price">₹100+/emp</span></td></tr>
+          <tr><td>Free trial</td><td class="hl"><strong>30 days</strong></td><td>7 days</td><td>Demo only</td><td>15 days</td></tr>
+          <tr><td>No setup fee</td><td class="hl"><span class="cmp-yes">✓</span></td><td><span class="cmp-no">✗</span></td><td><span class="cmp-no">✗</span></td><td><span class="cmp-yes">✓</span></td></tr>
+          <tr><td>AI Assistant (built-in)</td><td class="hl"><span class="cmp-yes">✓</span></td><td><span class="cmp-no">✗</span></td><td><span class="cmp-no">✗</span></td><td><span class="cmp-no">✗</span></td></tr>
+          <tr><td>All 28-state PT</td><td class="hl"><span class="cmp-yes">✓</span></td><td><span class="cmp-yes">✓</span></td><td><span class="cmp-yes">✓</span></td><td><span class="cmp-yes">✓</span></td></tr>
+          <tr><td>LWF (15 states)</td><td class="hl"><span class="cmp-yes">✓</span></td><td><span class="cmp-yes">✓</span></td><td><span class="cmp-yes">✓</span></td><td><span class="cmp-yes">✓</span></td></tr>
+          <tr><td>Tally XML export</td><td class="hl"><span class="cmp-yes">✓</span></td><td>Partial</td><td>Plugin</td><td><span class="cmp-yes">✓</span></td></tr>
+          <tr><td>Form 16 + 24Q + EPFO ECR</td><td class="hl"><span class="cmp-yes">✓</span></td><td><span class="cmp-yes">✓</span></td><td><span class="cmp-yes">✓</span></td><td><span class="cmp-yes">✓</span></td></tr>
+          <tr><td>CA-grade audit trail</td><td class="hl"><span class="cmp-yes">✓</span></td><td><span class="cmp-no">✗</span></td><td><span class="cmp-no">✗</span></td><td><span class="cmp-no">✗</span></td></tr>
+          <tr><td>CA multi-client portal</td><td class="hl"><span class="cmp-yes">✓</span></td><td><span class="cmp-no">✗</span></td><td><span class="cmp-no">✗</span></td><td><span class="cmp-no">✗</span></td></tr>
+          <tr><td>Minimum wages check</td><td class="hl"><span class="cmp-yes">✓</span></td><td><span class="cmp-yes">✓</span></td><td><span class="cmp-yes">✓</span></td><td><span class="cmp-no">✗</span></td></tr>
+          <tr><td>Self-registration (no sales call)</td><td class="hl"><span class="cmp-yes">✓</span></td><td><span class="cmp-yes">✓</span></td><td><span class="cmp-no">✗</span></td><td><span class="cmp-yes">✓</span></td></tr>
+          <tr style="background:#f0f4ff"><td><strong>Monthly cost (20 employees)</strong></td><td class="hl"><strong style="color:var(--green)">₹980/mo</strong></td><td><strong>₹7,495/mo</strong></td><td><strong>₹9,999/mo</strong></td><td><strong>₹2,000/mo</strong></td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p style="text-align:center;font-size:13px;color:var(--muted);margin-top:16px">Pricing data sourced from public websites as of June 2026. Keka charges ₹9,999/mo for up to 100 employees regardless of team size.</p>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section style="background:var(--light)">
+  <div class="section-inner">
+    <div class="section-header">
+      <div class="section-tag">Testimonials</div>
+      <h2 class="section-title">Trusted by CA firms &amp; businesses</h2>
+    </div>
+    <div class="testi-grid">
+      <div class="testi-card">
+        <div class="testi-stars">★★★★★</div>
+        <p class="testi-text">"We were paying ₹7,500/month for GreytHR for our 8 client companies. Payrolla handles all of them from one dashboard at ₹49/emp. Saved us ₹6,000/month."</p>
+        <div class="testi-author">
+          <div class="testi-avatar">AK</div>
+          <div><div class="testi-name">Amit Kumar, CA</div><div class="testi-role">Partner, AK & Associates · Lucknow</div></div>
+        </div>
+      </div>
+      <div class="testi-card">
+        <div class="testi-stars">★★★★★</div>
+        <p class="testi-text">"The AI assistant is genuinely useful. I asked it which employees are close to the ESIC ceiling and it gave me the exact list in 3 seconds. That used to take 20 minutes in Excel."</p>
+        <div class="testi-author">
+          <div class="testi-avatar">SP</div>
+          <div><div class="testi-name">Sunita Patel</div><div class="testi-role">HR Manager · Sunrise Textiles, Surat</div></div>
+        </div>
+      </div>
+      <div class="testi-card">
+        <div class="testi-stars">★★★★★</div>
+        <p class="testi-text">"The Tally XML export alone is worth it. Our accountant can now import salary entries directly into Tally Prime. Eliminated 4 hours of manual entry every month."</p>
+        <div class="testi-author">
+          <div class="testi-avatar">RJ</div>
+          <div><div class="testi-name">Rajesh Jain</div><div class="testi-role">Director · RJ Pharma · Delhi</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA BANNER -->
+<section class="cta-banner">
+  <h2>Ready to simplify payroll?</h2>
+  <p>Join businesses running compliant payroll at ₹49/employee/month. 30-day free trial. No credit card.</p>
+  <div class="hero-ctas">
+    <a href="https://canashulgarg.github.io/payrolla?register=1" class="btn btn-white btn-lg">🚀 Start Free Trial</a>
+    <a href="https://canashulgarg.github.io/payrolla" class="btn btn-outline-white btn-lg">Log in to existing account</a>
+  </div>
+  <p class="fine-print">Free for 30 days · No credit card · Cancel anytime</p>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <span class="logo">Payrolla<span style="color:#90caf9">.in</span></span>
+        <p>India's AI-powered payroll and HRMS software. Built by a Chartered Accountant for Indian businesses. CA-grade compliance, honest pricing, no hidden fees.</p>
+        <div class="compliance-badges">
+          <span class="cbadge">PF Compliant</span>
+          <span class="cbadge">ESIC Ready</span>
+          <span class="cbadge">TDS Correct</span>
+          <span class="cbadge">PT All 28 States</span>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Product</h4>
+        <a href="#features">Features</a>
+        <a href="#ai">AI Assistant</a>
+        <a href="#pricing">Pricing</a>
+        <a href="#compare">Comparison</a>
+        <a href="https://canashulgarg.github.io/payrolla?register=1">Free Trial</a>
+      </div>
+      <div class="footer-col">
+        <h4>Compliance</h4>
+        <a href="#features">PF / EPFO</a>
+        <a href="#features">ESIC</a>
+        <a href="#features">TDS / Form 16</a>
+        <a href="#features">PT — 28 States</a>
+        <a href="#features">LWF — 15 States</a>
+        <a href="#features">Form 24Q</a>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <a href="#">About</a>
+        <a href="#">Blog</a>
+        <a href="mailto:support@payrolla.in">Contact</a>
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms of Service</a>
+        <a href="https://canashulgarg.github.io/payrolla">App Login</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div>© 2026 Payrolla.in — Garg Shekhar & Company, Chartered Accountants, Meerut</div>
+      <div style="display:flex;gap:16px">
+        <a href="https://canashulgarg.github.io/payrolla" style="color:rgba(255,255,255,.5)">App</a>
+        <a href="mailto:support@payrolla.in" style="color:rgba(255,255,255,.5)">Support</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+// Smooth scroll for anchor links
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    const target = document.querySelector(a.getAttribute('href'));
+    if(target){ e.preventDefault(); target.scrollIntoView({behavior:'smooth', block:'start'}); }
+  });
+});
+
+// Sticky nav shadow on scroll
+window.addEventListener('scroll', () => {
+  document.querySelector('nav').style.boxShadow = window.scrollY > 10 ? '0 2px 20px rgba(0,0,0,.08)' : 'none';
+});
+</script>
+</body>
+</html>
